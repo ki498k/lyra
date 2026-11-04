@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Hug for Lyra ✨🌸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <!-- Floating background decorations -->
+  <div class="floating-bg" id="floatingBg"></div>
+
+  <!-- Music toggle button -->
+  <div class="audio-control">
+    <button id="musicBtn" title="Putar Musik Santai">
+      <span id="musicIcon">🎵</span>
+      <span class="music-label">Lofi Melody</span>
+    </button>
+  </div>
+
+  <main class="container">
+    <!-- Header Hero -->
+    <header class="hero-card">
+      <div class="badge-pill">💌 Surat Rahasia Untukmu</div>
+      <div class="avatar-wrapper">
+        <div class="mascot-bounce" id="mainMascot">🐰</div>
+        <div class="heart-pulse">💖</div>
+      </div>
+      <h1 class="title">Hai, <span class="highlight">Lyra</span>! ✨</h1>
+      <p class="subtitle">
+        Aku tahu hari-harimu lagi berat banget ya? Nafas dulu yuk... tarik nafas pelan-pelan, hembuskan. 
+        Ingat, kamu nggak sendirian!
+      </p>
+      
+      <div class="quick-actions">
+        <button class="btn btn-primary" id="hugBtn">
+          <span>Virtual Warm Hug</span> 🤗
+        </button>
+        <button class="btn btn-secondary" id="sparkleBtn">
+          <span>Tabur Semangat!</span> ✨
+        </button>
+      </div>
+    </header>
+
+    <!-- Interactive Mood / Booster Tabs -->
+    <section class="card booster-section">
+      <h2 class="section-title">🍓 Kotak Pertolongan Pertama Buat Lyra</h2>
+      <p class="section-desc">Pilih tombol di bawah kalau Lyra butuh suntikan moodboost yaa~</p>
+
+      <div class="tabs-grid">
+        <button class="tab-btn active" data-target="quoteBox">
+          <span class="tab-emoji">💌</span>
+          <span>Pesan Hari Ini</span>
+        </button>
+        <button class="tab-btn" data-target="bubbleBox">
+          <span class="tab-emoji">🫧</span>
+          <span>Pecahin Bubble</span>
+        </button>
+        <button class="tab-btn" data-target="remindBox">
+          <span class="tab-emoji">🌟</span>
+          <span>Pengingat Diri</span>
+        </button>
+        <button class="tab-btn" data-target="comfortBox">
+          <span class="tab-emoji">🍵</span>
+          <span>Resep Tenang</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: Dynamic Cute Quotes -->
+      <div class="tab-content active" id="quoteBox">
+        <div class="quote-card">
+          <div class="quote-icon">“</div>
+          <p id="quoteText" class="quote-text">
+            Kamu itu jauh lebih kuat, lebih hebat, dan lebih berharga dari apa yang lagi bikin kamu sedih hari ini.
+          </p>
+          <span class="quote-author">~ Peluk hangat dari orang yang sayang kamu 🌸</span>
+        </div>
+        <button class="btn btn-refresh" id="newQuoteBtn">
+          🎲 Ambil Pesan Manis Lainnya
+        </button>
+      </div>
+
+      <!-- Tab 2: Pop the Stress Bubbles -->
+      <div class="tab-content" id="bubbleBox">
+        <div class="bubble-info">
+          <p>Pecahin bubble-bubble ini buat lepasin unek-unek & rasa capekmu! POP! 🎈</p>
+          <span class="bubble-counter">Bubble terpecahkan: <strong id="popCount">0</strong></span>
+        </div>
+        <div class="bubble-arena" id="bubbleArena"></div>
+        <button class="btn btn-sm" id="resetBubbleBtn">Isi Bubble Lagi 🔄</button>
+      </div>
+
+      <!-- Tab 3: Reasons why Lyra is amazing -->
+      <div class="tab-content" id="remindBox">
+        <div class="checklist-card">
+          <h3>Hal yang Lyra Jangan Pernah Lupa:</h3>
+          <ul class="remind-list">
+            <li>
+              <span class="check-icon">💖</span>
+              <div>
+                <strong>Nggak apa-apa kalau lagi capek:</strong>
+                <span>Kamu manusia biasa, istirahat itu bukan berarti kamu nyerah.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon">🌸</span>
+              <div>
+                <strong>Masalah ini bakal berlalu:</strong>
+                <span>Badai pasti reda, matahari bakal terbit lagi dengan hangat buat kamu.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon">✨</span>
+              <div>
+                <strong>Kamu sudah berjuang sejauh ini:</strong>
+                <span>Banggalah sama diri sendiri karena sudah bertahan sampai hari ini, hebat banget!</span>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon">🫂</span>
+              <div>
+                <strong>Selalu ada yang peduli:</strong>
+                <span>Kapanpun kamu butuh cerita atau sekadar ditemani, ada yang siap ada buat kamu.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab 4: Comfort checklist -->
+      <div class="tab-content" id="comfortBox">
+        <div class="comfort-checklist">
+          <h3>Self-Care Checklist Sederhana Hari Ini:</h3>
+          <label class="todo-item">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <span>Minum segelas air putih hangat 💧</span>
+          </label>
+          <label class="todo-item">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <span>Makan camilan atau makanan manis favorit 🍰</span>
+          </label>
+          <label class="todo-item">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <span>Tarik nafas dalam-dalam 3 kali 🌬️</span>
+          </label>
+          <label class="todo-item">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <span>Dengerin lagu yang bikin adem hati 🎧</span>
+          </label>
+          <label class="todo-item">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <span>Tidur selimutan yang nyaman & hangat 🛌</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Warm Hug Modal -->
+    <div class="hug-modal" id="hugModal">
+      <div class="hug-modal-card">
+        <div class="modal-mascot">🐻‍❄️</div>
+        <h2>HUUGGGGG BUAT LYRA! 🤗💕</h2>
+        <p>
+          "Sini senderan dulu... Kamu hebat banget udah ngelewatin semua ini. 
+          Semuanya bakal baik-baik aja, pelan-pelan ya cantik!"
+        </p>
+        <div class="modal-hearts">💗 🌸 🌷 💖 ✨</div>
+        <button class="btn btn-primary" id="closeHugBtn">Terima Kasih, Aku Ngerasa Lebih Tenang 💕</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Dibuat spesial dengan penuh cinta & doa buat <strong>Lyra</strong> 🧸🌷</p>
+      <p class="small">Tetap semangat ya, senyum manis Lyra itu berharga banget! 😊</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
